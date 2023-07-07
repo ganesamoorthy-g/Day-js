@@ -1,0 +1,55 @@
+1. let obj1 = { name: "Person 1", age: 5 };
+let obj2 = { age: 5, name: "Person 1" };
+
+let str1 = JSON.stringify(obj1);
+let str2 = JSON.stringify(obj2);
+
+if (str1 === str2) {
+  console.log("The JSON objects are equal.");
+} else {
+  console.log("The JSON objects are not equal.");
+}
+
+
+
+2. fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(data => {
+   
+    data.forEach(country => {
+    
+      if (country.flags && country.flags.svg) {
+        console.log(country.name.common + ": " + country.flags.svg);
+      }
+    });
+  })
+  .catch(error => console.log(error));
+
+
+3.
+
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(data => {
+
+    data.forEach(country => {
+    
+      const name = country.name.common;
+      
+
+      const region = country.region;
+      
+ 
+      const subregion = country.subregion;
+      
+  
+      const population = country.population;
+      
+      console.log("Country: " + name);
+      console.log("Region: " + region);
+      console.log("Sub-region: " + subregion);
+      console.log("Population: " + population);
+     
+    });
+  })
+  .catch(error => console.log(error));
